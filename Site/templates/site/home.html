@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}HOME{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the meeting planner</h2>
+    <p>there are currently {{nbre_meeting}} meetings</p>
+    <h2>Meetings</h2>
+    
+    <ul>
+        {% for meeting in meetings %}
+        <li>
+            <a href="{% url 'detail' meeting.id %}">
+            {{ meeting.id }} 
+            {{ meeting.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'rooms' %}">Rooms list</a>
+
+{% endblock %}
